@@ -1,0 +1,109 @@
+"use client";
+
+import React, { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight, Maximize2 } from "lucide-react";
+import { Project } from "@/lib/projects";
+
+interface ProjectGalleryProps {
+  project: Project;
+  index: number;
+}
+
+export default function ProjectGallery({ project, index }: ProjectGalleryProps) {
+  const [currentIdx, setCurrentIdx] = useState(0);
+
+  const next = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setCurrentIdx((prev) => (prev + 1) % project.images.length);
+  };
+
+  const prev = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setCurrentIdx((prev) => (prev - 1 + project.images.length) % project.images.length);
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1, duration: 0.8 }}
+      className="group relative flex flex-col"
+    >
+      <Link href={`/projelerimiz/${project.slug}`} className="block">
+        <div className="relative aspect-[16/10] overflow-hidden rounded-[3rem] bg-slate-100 shadow-2xl shadow-slate-200/50">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentIdx}
+              initial={{ opacity: 0, scale: 1.1 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute inset-0"
+            >
+              <Image
+                src={project.images[currentIdx]}
+                alt={project.title}
+                fill
+                className="object-cover"
+              />
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Overlays */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700" />
+          
+          <div className="absolute inset-0 flex items-center justify-between px-6 opacity-0 group-hover:opacity-100 transition-all duration-700">
+            <button 
+              onClick={prev}
+              className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white hover:bg-primary transition-all"
+            >
+              <ChevronLeft />
+            </button>
+            <button 
+              onClick={next}
+              className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white hover:bg-primary transition-all"
+            >
+              <ChevronRight />
+            </button>
+          </div>
+
+          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-700 pointer-events-none">
+             <div className="px-6 py-3 bg-white/10 backdrop-blur-2xl border border-white/20 rounded-full text-white text-[10px] uppercase font-black tracking-[0.2em]">
+                Tüm Fotoğrafları Gör
+             </div>
+          </div>
+
+          <div className="absolute top-8 right-8 w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-700 hover:bg-primary pointer-events-auto">
+            <Maximize2 size={20} />
+          </div>
+
+          <div className="absolute bottom-10 left-10 opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-y-4 group-hover:translate-y-0">
+             <div className="flex gap-1.5 mb-4 flex-wrap max-w-full">
+                {project.images.map((_, i) => (
+                  <div 
+                    key={i} 
+                    className={`h-[2px] transition-all ${i === currentIdx ? "bg-primary w-8" : "bg-white/30 w-3"}`} 
+                  />
+                ))}
+             </div>
+          </div>
+        </div>
+
+        <div className="mt-8 px-2">
+          <div className="flex items-center justify-between">
+            <h3 className="text-3xl font-black text-slate-950 uppercase tracking-tighter transition-colors group-hover:text-primary">
+              {project.title}
+            </h3>
+            <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 bg-slate-50 px-4 py-1.5 rounded-full">
+              {project.images.length} GÖRSEL
+            </span>
+          </div>
+        </div>
+      </Link>
+    </motion.div>
+  );
+}
