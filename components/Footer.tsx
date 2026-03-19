@@ -72,8 +72,21 @@ export default function Footer() {
                   <div className="flex gap-6">
                     <Phone className="text-primary shrink-0" size={24} />
                     <div>
-                      <h5 className="font-black uppercase tracking-tight text-white mb-2">Bize Ulaşın</h5>
-                      <p className="text-slate-400 leading-relaxed font-medium">+90 212 000 00 00</p>
+                      <h5 className="font-black uppercase tracking-tight text-white mb-2">Kurucu İletişim</h5>
+                      <div className="space-y-2">
+                        <a
+                          href="tel:+905428541208"
+                          className="block text-slate-400 leading-relaxed font-medium hover:text-white transition-colors"
+                        >
+                          Muhittin Kalıntaş: +90 542 854 12 08
+                        </a>
+                        <a
+                          href="tel:+905388221875"
+                          className="block text-slate-400 leading-relaxed font-medium hover:text-white transition-colors"
+                        >
+                          Mesut Demiralp: +90 538 822 18 75
+                        </a>
+                      </div>
                     </div>
                   </div>
                </div>

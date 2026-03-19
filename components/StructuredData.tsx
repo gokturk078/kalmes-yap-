@@ -6,7 +6,7 @@ export default function StructuredData() {
     "image": "https://kalmesyapi.com/logo.jpg",
     "@id": "https://kalmesyapi.com",
     "url": "https://kalmesyapi.com",
-    "telephone": "+902120000000",
+    "telephone": "+905428541208",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Merkez Ofis",

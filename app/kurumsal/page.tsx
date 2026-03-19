@@ -1,4 +1,4 @@
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -59,11 +59,23 @@ export default function KurumsalPage() {
              <div className="flex flex-col md:flex-row justify-center gap-12 font-black uppercase tracking-widest text-xs">
                 <div>
                    <div className="text-primary mb-2">Muhittin Kalıntaş</div>
-                   <div className="text-slate-600">Kurucu Ortak</div>
+                   <div className="text-slate-600 mb-3">Kurucu Ortak</div>
+                   <a
+                     href="tel:+905428541208"
+                     className="text-slate-300 hover:text-white transition-colors normal-case tracking-normal text-sm font-semibold"
+                   >
+                     +90 542 854 12 08
+                   </a>
                 </div>
                 <div>
                    <div className="text-primary mb-2">Mesut Demiralp</div>
-                   <div className="text-slate-600">Kurucu Ortak</div>
+                   <div className="text-slate-600 mb-3">Kurucu Ortak</div>
+                   <a
+                     href="tel:+905388221875"
+                     className="text-slate-300 hover:text-white transition-colors normal-case tracking-normal text-sm font-semibold"
+                   >
+                     +90 538 822 18 75
+                   </a>
                 </div>
              </div>
           </div>
