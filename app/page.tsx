@@ -6,6 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { getAllProjects } from "@/lib/projects";
 
+export const revalidate = 0;
+
 const services = [
   {
     title: "Alt Yapı Taahhüt",
@@ -24,8 +26,8 @@ const services = [
   },
 ];
 
-export default function Home() {
-  const allProjects = getAllProjects();
+export default async function Home() {
+  const allProjects = await getAllProjects();
   const featuredProjects = allProjects.slice(0, 4);
 
   return (
@@ -40,7 +42,7 @@ export default function Home() {
               <div className="absolute -inset-6 bg-slate-50 rounded-[4rem] group-hover:scale-105 transition-transform duration-1000" />
               <div className="relative h-full overflow-hidden rounded-[3.5rem] shadow-2xl">
                 <Image
-                  src="/home/home-3.jpg"
+                  src="/home/hero-alti-gorsel-clean.jpg"
                   alt="Engineering Excellence"
                   fill
                   className="object-cover transition-transform duration-1000 group-hover:scale-110"

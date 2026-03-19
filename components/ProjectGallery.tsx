@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Maximize2 } from "lucide-react";
-import { Project } from "@/lib/projects";
+import type { Project } from "@/lib/projects";
 
 interface ProjectGalleryProps {
   project: Project;
@@ -14,15 +14,16 @@ interface ProjectGalleryProps {
 
 export default function ProjectGallery({ project, index }: ProjectGalleryProps) {
   const [currentIdx, setCurrentIdx] = useState(0);
+  const images = project.images.length > 0 ? project.images : ["/home/home-1.jpg"];
 
   const next = (e: React.MouseEvent) => {
     e.preventDefault();
-    setCurrentIdx((prev) => (prev + 1) % project.images.length);
+    setCurrentIdx((prev) => (prev + 1) % images.length);
   };
 
   const prev = (e: React.MouseEvent) => {
     e.preventDefault();
-    setCurrentIdx((prev) => (prev - 1 + project.images.length) % project.images.length);
+    setCurrentIdx((prev) => (prev - 1 + images.length) % images.length);
   };
 
   return (
@@ -45,10 +46,10 @@ export default function ProjectGallery({ project, index }: ProjectGalleryProps) 
               className="absolute inset-0"
             >
               <Image
-                src={project.images[currentIdx]}
+                src={images[currentIdx]}
                 alt={project.title}
                 fill
-                className="object-cover"
+                className="object-cover origin-center scale-[1.07] transition-transform duration-700 group-hover:scale-[1.12]"
               />
             </motion.div>
           </AnimatePresence>
@@ -83,7 +84,7 @@ export default function ProjectGallery({ project, index }: ProjectGalleryProps) 
 
           <div className="absolute bottom-10 left-10 opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-y-4 group-hover:translate-y-0">
              <div className="flex gap-1.5 mb-4 flex-wrap max-w-full">
-                {project.images.map((_, i) => (
+                {images.map((_, i) => (
                   <div 
                     key={i} 
                     className={`h-[2px] transition-all ${i === currentIdx ? "bg-primary w-8" : "bg-white/30 w-3"}`} 

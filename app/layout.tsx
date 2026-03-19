@@ -1,7 +1,5 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import StructuredData from "@/components/StructuredData";
+import AppShell from "@/components/AppShell";
 import { Inter } from "next/font/google";
 import "@/app/globals.css";
 
@@ -39,10 +37,7 @@ export default function RootLayout({
     <html lang="tr">
       <body className={`${inter.className} selection:bg-primary/30`}>
         <StructuredData />
-        <Navbar />
-        {children}
-        <Footer />
-        <WhatsAppButton />
+        <AppShell>{children}</AppShell>
       </body>
     </html>
   );

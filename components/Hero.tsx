@@ -17,15 +17,15 @@ export default function Hero() {
         className="absolute inset-0 z-0"
       >
         <Image
-          src="/home/home-1.jpg"
+          src="/home/hero-arka-plan-clean.jpg"
           alt="KALMES YAPI Havalimanı Terminal"
           fill
-          className="object-cover opacity-60"
+          className="object-cover opacity-90"
           priority
         />
         {/* Multi-layered premium gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-slate-950/90" />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-transparent to-transparent opacity-80" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-slate-900/25 to-slate-950/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/40 via-slate-950/10 to-transparent opacity-35" />
       </motion.div>
 
       {/* Content Layer */}

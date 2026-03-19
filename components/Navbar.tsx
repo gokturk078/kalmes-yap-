@@ -52,13 +52,16 @@ export default function Navbar() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="relative h-12 w-48 md:h-16 md:w-64"
+            className={cn(
+              "relative transition-all duration-700",
+              scrolled ? "h-20 w-72 md:h-24 md:w-[21rem]" : "h-24 w-80 md:h-28 md:w-[24rem]"
+            )}
           >
             <Image
               src="/logo.jpg"
               alt="KALMES YAPI Logo"
               fill
-              className="object-contain transition-all duration-500"
+              className="object-contain transition-all duration-500 brightness-110 saturate-125 drop-shadow-[0_14px_34px_rgba(2,6,23,0.55)]"
               priority
             />
           </motion.div>

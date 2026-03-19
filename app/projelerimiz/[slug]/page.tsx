@@ -1,4 +1,4 @@
-import { getProjectBySlug, getAllProjects } from "@/lib/projects";
+import { getProjectBySlug } from "@/lib/projects";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -7,7 +7,7 @@ import { Metadata } from "next";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const project = getProjectBySlug(slug);
+  const project = await getProjectBySlug(slug);
   
   if (!project) return { title: "Proje Bulunamadı" };
 
@@ -15,25 +15,25 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `${project.title} | Proje Detayları`,
     description: `${project.title} projesi detayları, görselleri ve KALMES YAPI mühendislik çözümleri. Kıbrıs altyapı ve üst yapı referanslarımız.`,
     openGraph: {
-      images: [project.images[0]],
+      images: project.images[0] ? [project.images[0]] : [],
     },
   };
 }
 
-export async function generateStaticParams() {
-  const projects = getAllProjects();
-  return projects.map((project) => ({
-    slug: project.slug,
-  }));
-}
+export const revalidate = 0;
 
 export default async function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const project = getProjectBySlug(slug);
+  const project = await getProjectBySlug(slug);
 
   if (!project) {
     notFound();
   }
+
+  const images = project.images.length > 0 ? project.images : ["/home/home-1.jpg"];
+  const location = project.location || "Türkiye";
+  const projectYear = project.year ? String(project.year) : "2024";
+  const status = project.status || "Tamamlandı";
 
   return (
     <main className="pt-40 pb-32 bg-white">
@@ -61,19 +61,19 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                   <div className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 flex items-center gap-2">
                      <MapPin size={12} /> Konum
                   </div>
-                  <div className="text-xl font-black text-slate-950 tracking-tight">Türkiye</div>
+                  <div className="text-xl font-black text-slate-950 tracking-tight">{location}</div>
                </div>
                <div>
                   <div className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 flex items-center gap-2">
                      <Calendar size={12} /> Yıl
                   </div>
-                  <div className="text-xl font-black text-slate-950 tracking-tight">2024</div>
+                  <div className="text-xl font-black text-slate-950 tracking-tight">{projectYear}</div>
                </div>
                <div>
                   <div className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 flex items-center gap-2">
                      <HardHat size={12} /> Durum
                   </div>
-                  <div className="text-xl font-black text-primary tracking-tight">Tamamlandı</div>
+                  <div className="text-xl font-black text-primary tracking-tight">{status}</div>
                </div>
             </div>
           </div>
@@ -81,14 +81,14 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 
         {/* Image Grid / Masonry */}
         <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
-           {project.images.map((img, idx) => (
+           {images.map((img, idx) => (
              <div key={idx} className="relative overflow-hidden rounded-[2.5rem] group shadow-2xl shadow-slate-200/50">
                 <Image
                   src={img}
                   alt={`${project.title} - Görsel ${idx + 1}`}
                   width={800}
                   height={1200}
-                  className="w-full h-auto object-cover transition-transform duration-1000 group-hover:scale-105"
+                  className="w-full h-auto object-cover origin-center scale-[1.06] transition-transform duration-1000 group-hover:scale-[1.11]"
                 />
                 <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
              </div>

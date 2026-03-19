@@ -45,7 +45,12 @@ export default function IletisimPage() {
                 </div>
                 <div>
                   <h3 className="text-sm font-black uppercase tracking-widest text-slate-400 mb-2">E-Posta</h3>
-                  <p className="text-2xl font-black text-slate-950 uppercase tracking-tight">info@kalmesyapi.com</p>
+                  <a
+                    href="mailto:info@kalmesyapi.com"
+                    className="text-2xl font-black text-slate-950 tracking-tight hover:text-primary transition-colors"
+                  >
+                    info@kalmesyapi.com
+                  </a>
                 </div>
               </div>
             </div>

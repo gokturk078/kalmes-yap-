@@ -7,8 +7,10 @@ export const metadata: Metadata = {
   description: "Kıbrıs ve Türkiye'deki tamamlanmış havalimanı, viyadük ve büyük ölçekli altyapı projelerimizi inceleyin.",
 };
 
-export default function ProjelerimizPage() {
-  const projects = getAllProjects();
+export const revalidate = 0;
+
+export default async function ProjelerimizPage() {
+  const projects = await getAllProjects();
 
   return (
     <main className="pt-40 pb-32 bg-white">
