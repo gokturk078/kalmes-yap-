@@ -1,15 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Instagram, Linkedin, Facebook, MapPin, Phone, Mail, ArrowRight } from "lucide-react";
+import { Instagram, MapPin, Phone, Mail, ArrowRight } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-950 text-white pt-32 pb-16 relative overflow-hidden">
+    <footer className="bg-slate-950 text-white pt-20 md:pt-32 pb-16 relative overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-800 to-transparent" />
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 mb-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 md:gap-20 mb-20 md:mb-32">
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <Link href="/" className="inline-block mb-10 group relative h-16 w-48">
@@ -24,15 +24,14 @@ export default function Footer() {
               Mühendislik mirasını modern teknolojiyle birleştirerek dünyanın dört bir yanında anıtsal projeler inşa ediyoruz.
             </p>
             <div className="flex gap-4">
-              {[Instagram, Linkedin, Facebook].map((Icon, i) => (
-                <Link 
-                  key={i} 
-                  href="#" 
-                  className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all group"
-                >
-                  <Icon size={20} className="text-slate-400 group-hover:text-white transition-colors" />
-                </Link>
-              ))}
+              <Link 
+                href="https://www.instagram.com/muhittin_kalintas61/" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all group"
+              >
+                <Instagram size={20} className="text-slate-400 group-hover:text-white transition-colors" />
+              </Link>
             </div>
           </div>
 
@@ -75,10 +74,10 @@ export default function Footer() {
                       <h5 className="font-black uppercase tracking-tight text-white mb-2">Kurucu İletişim</h5>
                       <div className="space-y-2">
                         <a
-                          href="tel:+905428541208"
+                          href="tel:+905367644931"
                           className="block text-slate-400 leading-relaxed font-medium hover:text-white transition-colors"
                         >
-                          Muhittin Kalıntaş: +90 542 854 12 08
+                          Muhittin Kalıntaş: +90 536 764 49 31
                         </a>
                         <a
                           href="tel:+905388221875"

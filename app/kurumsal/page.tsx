@@ -61,10 +61,10 @@ export default function KurumsalPage() {
                    <div className="text-primary mb-2">Muhittin Kalıntaş</div>
                    <div className="text-slate-600 mb-3">Kurucu Ortak</div>
                    <a
-                     href="tel:+905428541208"
+                     href="tel:+905367644931"
                      className="text-slate-300 hover:text-white transition-colors normal-case tracking-normal text-sm font-semibold"
                    >
-                     +90 542 854 12 08
+                     +90 536 764 49 31
                    </a>
                 </div>
                 <div>

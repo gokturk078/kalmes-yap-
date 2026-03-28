@@ -35,11 +35,11 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl text-primary text-[10px] uppercase font-black tracking-[0.4em] mb-10"
+            className="inline-flex items-center gap-3 px-6 py-3 rounded-full border border-white/20 bg-white/10 backdrop-blur-xl text-white text-xs uppercase font-black tracking-[0.3em] mb-10 shadow-xl shadow-white/5"
           >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-white"></span>
             </span>
             Dünya Standartlarında Mühendislik
           </motion.div>
@@ -48,31 +48,22 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-6xl md:text-9xl text-white font-black leading-[0.85] tracking-[-0.08em] mb-8"
+            className="text-5xl sm:text-7xl md:text-9xl text-white font-black leading-[0.85] tracking-[-0.08em] mb-12 sm:mb-16"
           >
             GELECEĞİN <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-400">ANITLARINI</span> <br />
             İNŞA EDİYORUZ
           </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-slate-400 max-w-2xl mx-auto text-lg md:text-xl font-medium mb-16 leading-relaxed"
-          >
-            2004 yılından bu yana, Alarko Holding tecrübesiyle havalimanları, enerji santralleri ve devasa altyapı projelerinde küresel bir vizyon sunuyoruz.
-          </motion.p>
-
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="flex flex-col sm:flex-row items-center gap-6"
+            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6 w-full sm:w-auto px-4 sm:px-0"
           >
             <Link
               href="/projelerimiz"
-              className="group relative px-10 py-5 bg-white text-slate-950 font-black uppercase text-xs tracking-[0.2em] rounded-2xl flex items-center gap-3 transition-all hover:bg-primary hover:text-white hover:scale-105 active:scale-95 shadow-2xl shadow-white/5"
+              className="group relative px-10 py-5 bg-white text-slate-950 font-black uppercase text-xs tracking-[0.2em] rounded-2xl flex items-center justify-center gap-3 transition-all hover:bg-primary hover:text-white hover:scale-105 active:scale-95 shadow-2xl shadow-white/5"
             >
               Tüm Projelerimiz
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -80,7 +71,7 @@ export default function Hero() {
             
             <Link
               href="/kurumsal"
-              className="px-10 py-5 border border-white/20 text-white font-black uppercase text-xs tracking-[0.2em] rounded-2xl backdrop-blur-md transition-all hover:bg-white/5 hover:border-white/40 active:scale-95"
+              className="px-10 py-5 border border-white/20 text-white font-black uppercase text-xs tracking-[0.2em] rounded-2xl backdrop-blur-md flex items-center justify-center transition-all hover:bg-white/5 hover:border-white/40 active:scale-95"
             >
               Hakkımızda
             </Link>

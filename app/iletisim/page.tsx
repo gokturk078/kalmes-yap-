@@ -35,12 +35,20 @@ export default function IletisimPage() {
                 </div>
                 <div>
                   <h3 className="text-sm font-black uppercase tracking-widest text-slate-400 mb-2">Telefon</h3>
-                  <a
-                    href="tel:+905428541208"
-                    className="text-2xl font-black text-slate-950 tracking-tight hover:text-primary transition-colors"
-                  >
-                    +90 542 854 12 08
-                  </a>
+                  <div className="flex flex-col gap-2">
+                    <a
+                      href="tel:+905367644931"
+                      className="text-2xl font-black text-slate-950 tracking-tight hover:text-primary transition-colors"
+                    >
+                      Muhittin Kalıntaş: +90 536 764 49 31
+                    </a>
+                    <a
+                      href="tel:+905388221875"
+                      className="text-2xl font-black text-slate-950 tracking-tight hover:text-primary transition-colors"
+                    >
+                      Mesut Demiralp: +90 538 822 18 75
+                    </a>
+                  </div>
                 </div>
               </div>
 

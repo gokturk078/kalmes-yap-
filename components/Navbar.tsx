@@ -118,26 +118,69 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: -20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: -20 }}
-            className="absolute top-28 left-4 right-4 bg-white rounded-[2.5rem] shadow-2xl p-10 lg:hidden border border-slate-100 z-[101]"
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="fixed inset-0 bg-slate-950 z-[110] flex flex-col p-10 lg:hidden"
           >
-            <div className="flex flex-col gap-8">
-              {navLinks.map((link) => (
-                <Link
+            <div className="flex justify-between items-center mb-16">
+              <div className="relative h-12 w-48">
+                <Image
+                  src="/logo.jpg"
+                  alt="Logo"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <button
+                onClick={() => setMobileMenuOpen(false)}
+                className="p-3 bg-white/5 rounded-2xl text-white"
+              >
+                <X size={28} />
+              </button>
+            </div>
+
+            <div className="flex flex-col gap-6">
+              {navLinks.map((link, i) => (
+                <motion.div
                   key={link.name}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={cn(
-                    "text-2xl font-black uppercase tracking-tighter flex items-center justify-between group",
-                    pathname === link.href ? "text-primary" : "text-slate-400"
-                  )}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.1 }}
                 >
-                  {link.name}
-                  <ArrowRight className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
+                  <Link
+                    href={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={cn(
+                      "text-4xl font-black uppercase tracking-tighter flex items-center justify-between group py-2",
+                      pathname === link.href ? "text-primary" : "text-white/40"
+                    )}
+                  >
+                    {link.name}
+                    <ArrowRight className={cn(
+                      "transition-all duration-300",
+                      pathname === link.href ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0"
+                    )} />
+                  </Link>
+                </motion.div>
               ))}
+            </div>
+
+            <div className="mt-auto pt-10 border-t border-white/5">
+              <Link
+                href="/iletisim"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full py-6 bg-primary text-white rounded-2xl font-black uppercase tracking-[0.2em] flex items-center justify-center gap-3 shadow-2xl shadow-primary/20"
+              >
+                Hemen Teklif Al
+                <ArrowRight size={20} />
+              </Link>
+              
+              <div className="mt-10 flex gap-6 justify-center">
+                <Link href="https://www.instagram.com/muhittin_kalintas61/" target="_blank" className="text-white/40 hover:text-white transition-colors uppercase text-[10px] font-black tracking-widest">Instagram</Link>
+                <Link href="/kurumsal" className="text-white/40 hover:text-white transition-colors uppercase text-[10px] font-black tracking-widest">Kurumsal</Link>
+              </div>
             </div>
           </motion.div>
         )}

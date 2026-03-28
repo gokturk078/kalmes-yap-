@@ -1,13 +1,5 @@
 create extension if not exists pgcrypto;
 
-create or replace function public.is_admin_email()
-returns boolean
-language sql
-stable
-as $$
-  select coalesce((auth.jwt() ->> 'email') = 'kalmesyapi@gmail.com', false);
-$$;
-
 create table if not exists public.projects (
   id uuid primary key default gen_random_uuid(),
   slug text not null unique,
@@ -92,16 +84,16 @@ create policy "Authenticated write projects"
 on public.projects
 for all
 to authenticated
-using (public.is_admin_email())
-with check (public.is_admin_email());
+using (true)
+with check (true);
 
 drop policy if exists "Authenticated write project images" on public.project_images;
 create policy "Authenticated write project images"
 on public.project_images
 for all
 to authenticated
-using (public.is_admin_email())
-with check (public.is_admin_email());
+using (true)
+with check (true);
 
 drop policy if exists "Public create contact messages" on public.contact_messages;
 create policy "Public create contact messages"
@@ -115,22 +107,22 @@ create policy "Authenticated read contact messages"
 on public.contact_messages
 for select
 to authenticated
-using (public.is_admin_email());
+using (true);
 
 drop policy if exists "Authenticated update contact messages" on public.contact_messages;
 create policy "Authenticated update contact messages"
 on public.contact_messages
 for update
 to authenticated
-using (public.is_admin_email())
-with check (public.is_admin_email());
+using (true)
+with check (true);
 
 drop policy if exists "Authenticated delete contact messages" on public.contact_messages;
 create policy "Authenticated delete contact messages"
 on public.contact_messages
 for delete
 to authenticated
-using (public.is_admin_email());
+using (true);
 
 drop policy if exists "Public read project-images bucket" on storage.objects;
 create policy "Public read project-images bucket"

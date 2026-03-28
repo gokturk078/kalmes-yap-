@@ -38,7 +38,6 @@ const initialNewProjectForm: NewProjectForm = {
 };
 
 export default function AdminPanel() {
-  const allowedAdminEmail = process.env.NEXT_PUBLIC_ADMIN_EMAIL?.toLowerCase().trim() || "";
   const supabase = useMemo(() => (hasSupabaseConfig ? getSupabaseBrowserClient() : null), []);
 
   const [loadingSession, setLoadingSession] = useState(hasSupabaseConfig);
@@ -61,21 +60,6 @@ export default function AdminPanel() {
     setActionError("");
     setActionSuccess("");
   };
-
-  const isUserAllowed = useCallback(
-    (candidate: User | null) => {
-      if (!candidate) {
-        return false;
-      }
-
-      if (!allowedAdminEmail) {
-        return true;
-      }
-
-      return candidate.email?.toLowerCase().trim() === allowedAdminEmail;
-    },
-    [allowedAdminEmail]
-  );
 
   const fetchProjects = useCallback(async () => {
     if (!supabase) {
@@ -154,21 +138,13 @@ export default function AdminPanel() {
       }
 
       const currentUser = data.session?.user ?? null;
+      setUser(currentUser);
 
-      if (currentUser && !isUserAllowed(currentUser)) {
-        await supabase.auth.signOut();
-        setUser(null);
+      if (currentUser) {
+        await Promise.all([fetchProjects(), fetchMessages()]);
+      } else {
         setProjects([]);
         setMessages([]);
-        setAuthError("Bu panel sadece yetkili admin e-posta hesabı ile kullanılabilir.");
-      } else {
-        setUser(currentUser);
-        if (currentUser) {
-          await Promise.all([fetchProjects(), fetchMessages()]);
-        } else {
-          setProjects([]);
-          setMessages([]);
-        }
       }
 
       setLoadingSession(false);
@@ -178,16 +154,6 @@ export default function AdminPanel() {
 
     const { data: authListener } = supabase.auth.onAuthStateChange((_event, session) => {
       const nextUser = session?.user ?? null;
-
-      if (nextUser && !isUserAllowed(nextUser)) {
-        void supabase.auth.signOut();
-        setUser(null);
-        setProjects([]);
-        setMessages([]);
-        setAuthError("Bu panel sadece yetkili admin e-posta hesabı ile kullanılabilir.");
-        return;
-      }
-
       setUser(nextUser);
       setAuthError("");
 
@@ -203,7 +169,7 @@ export default function AdminPanel() {
       active = false;
       authListener.subscription.unsubscribe();
     };
-  }, [fetchMessages, fetchProjects, isUserAllowed, supabase]);
+  }, [fetchMessages, fetchProjects, supabase]);
 
   const handleLogin = async (event: FormEvent) => {
     event.preventDefault();
@@ -215,22 +181,13 @@ export default function AdminPanel() {
       return;
     }
 
-    const { data, error } = await supabase.auth.signInWithPassword({
+    const { error } = await supabase.auth.signInWithPassword({
       email: email.trim(),
       password,
     });
 
     if (error) {
       setAuthError(error.message);
-      setBusyAction("");
-      return;
-    }
-
-    const signedInUser = data.user;
-
-    if (!isUserAllowed(signedInUser)) {
-      await supabase.auth.signOut();
-      setAuthError("Bu e-posta admin panelinde yetkili değil.");
       setBusyAction("");
       return;
     }

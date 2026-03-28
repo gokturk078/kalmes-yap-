@@ -35,12 +35,12 @@ export default async function Home() {
       <Hero />
 
       {/* Trust & Heritage Section */}
-      <section className="py-32 bg-white">
+      <section className="py-20 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-24 items-center">
-            <div className="relative h-[700px] group">
-              <div className="absolute -inset-6 bg-slate-50 rounded-[4rem] group-hover:scale-105 transition-transform duration-1000" />
-              <div className="relative h-full overflow-hidden rounded-[3.5rem] shadow-2xl">
+          <div className="grid lg:grid-cols-2 gap-16 md:gap-24 items-center">
+            <div className="relative h-[400px] md:h-[700px] group order-2 lg:order-1">
+              <div className="absolute -inset-4 md:-inset-6 bg-slate-50 rounded-[2.5rem] md:rounded-[4rem] group-hover:scale-105 transition-transform duration-1000" />
+              <div className="relative h-full overflow-hidden rounded-[2rem] md:rounded-[3.5rem] shadow-2xl">
                 <Image
                   src="/home/hero-alti-gorsel-clean.jpg"
                   alt="Engineering Excellence"
@@ -50,24 +50,24 @@ export default async function Home() {
               </div>
             </div>
 
-            <div>
+            <div className="order-1 lg:order-2">
               <span className="text-primary font-black uppercase text-xs tracking-[0.4em] mb-6 block">Köklerimiz</span>
-              <h2 className="text-5xl md:text-7xl font-black text-slate-950 leading-[0.9] tracking-[-0.06em] mb-10 uppercase">
+              <h2 className="text-4xl md:text-7xl font-black text-slate-950 leading-[0.9] tracking-[-0.06em] mb-10 uppercase">
                 20 YILLIK <br />
                 KÜRESEL <br />
                 <span className="text-slate-300">DENEYİM</span>
               </h2>
-              <p className="text-slate-600 text-xl leading-relaxed mb-12">
+              <p className="text-slate-600 text-lg md:text-xl leading-relaxed mb-12">
                 2021&apos;de Muhittin Kalıntaş ve Mesut Demiralp tarafından kurulan KALMES YAPI, temellerini 2004 Alarko Holding Rusya LNG II projesiyle atan, vizyonu kıtaları aşan bir mühendislik gücüdür.
               </p>
               
-              <div className="grid grid-cols-2 gap-10 border-t border-slate-100 pt-12">
+              <div className="grid grid-cols-2 gap-8 md:gap-10 border-t border-slate-100 pt-12">
                 <div>
-                  <div className="text-5xl font-black text-slate-950 mb-2">18+</div>
+                  <div className="text-4xl md:text-5xl font-black text-slate-950 mb-2">18+</div>
                   <div className="text-[10px] uppercase font-black tracking-widest text-slate-400">Yıl Tecrübe</div>
                 </div>
                 <div>
-                  <div className="text-5xl font-black text-slate-950 mb-2">%100</div>
+                  <div className="text-4xl md:text-5xl font-black text-slate-950 mb-2">%100</div>
                   <div className="text-[10px] uppercase font-black tracking-widest text-slate-400">Müşteri Memnuniyeti</div>
                 </div>
               </div>
@@ -77,16 +77,16 @@ export default async function Home() {
       </section>
 
       {/* Redesigned Services Section */}
-      <section className="py-32 bg-slate-50">
+      <section className="py-20 md:py-32 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-24">
+          <div className="text-center mb-16 md:mb-24">
             <span className="text-primary font-black uppercase text-xs tracking-[0.4em] mb-6 block">Hizmet Alanları</span>
-            <h2 className="text-5xl md:text-7xl font-black text-slate-950 tracking-[-0.06em] uppercase">
+            <h2 className="text-4xl md:text-7xl font-black text-slate-950 tracking-[-0.06em] uppercase">
               MÜKEMMELİYETÇİ <br /> <span className="text-slate-300">ÇÖZÜM ORTAKLIĞI</span>
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
             {services.map((item, idx) => (
               <ServiceCard key={idx} {...item} index={idx} />
             ))}
@@ -95,22 +95,22 @@ export default async function Home() {
       </section>
 
       {/* Dynamic Projects Preview */}
-      <section className="py-32 bg-white">
+      <section className="py-20 md:py-32 bg-white">
         <div className="max-w-[1600px] mx-auto px-6">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-24 gap-8">
             <div>
               <span className="text-primary font-black uppercase text-xs tracking-[0.4em] mb-6 block">Portfolyo</span>
-              <h2 className="text-5xl md:text-7xl font-black text-slate-950 tracking-[-0.06em] uppercase">
+              <h2 className="text-4xl md:text-7xl font-black text-slate-950 tracking-[-0.06em] uppercase">
                 ÖNE ÇIKAN <br /> <span className="text-slate-300">PROJELERİMİZ</span>
               </h2>
             </div>
-            <Link href="/projelerimiz" className="group flex items-center gap-4 text-xs font-black uppercase tracking-widest text-slate-950 bg-slate-50 px-10 py-5 rounded-2xl hover:bg-slate-900 hover:text-white transition-all">
+            <Link href="/projelerimiz" className="group flex items-center justify-center gap-4 text-xs font-black uppercase tracking-widest text-slate-950 bg-slate-50 px-10 py-5 rounded-2xl hover:bg-slate-900 hover:text-white transition-all w-full md:w-auto">
               Tümünü Gör
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-2" />
             </Link>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
             {featuredProjects.map((project, idx) => (
               <ProjectGallery key={project.slug} project={project} index={idx} />
             ))}
@@ -119,16 +119,16 @@ export default async function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-32 px-6">
-        <div className="max-w-7xl mx-auto rounded-[4rem] bg-slate-950 overflow-hidden relative p-16 md:p-32">
+      <section className="py-20 md:py-32 px-6">
+        <div className="max-w-7xl mx-auto rounded-[2.5rem] md:rounded-[4rem] bg-slate-950 overflow-hidden relative p-12 md:p-32">
           <div className="absolute inset-0 opacity-20 bg-[url('/home/home-1.jpg')] bg-cover bg-center" />
           <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-slate-950/90" />
           
           <div className="relative z-10 text-center">
-            <h2 className="text-4xl md:text-7xl font-black text-white mb-12 uppercase tracking-tighter leading-none">
+            <h2 className="text-4xl md:text-7xl font-black text-white mb-10 md:mb-12 uppercase tracking-tighter leading-none">
               PROJENİZİ <br /> BİRLİKTE <br /> BAŞLATALIM
             </h2>
-            <Link href="/iletisim" className="inline-flex px-12 py-6 bg-white text-slate-950 rounded-2xl font-black uppercase tracking-[0.2em] hover:bg-primary hover:text-white transition-all transform hover:scale-110">
+            <Link href="/iletisim" className="inline-flex px-10 md:px-12 py-5 md:py-6 bg-white text-slate-950 rounded-2xl font-black uppercase text-xs md:text-sm tracking-[0.2em] hover:bg-primary hover:text-white transition-all transform hover:scale-105 md:hover:scale-110">
               Bizimle İletişime Geçin
             </Link>
           </div>
