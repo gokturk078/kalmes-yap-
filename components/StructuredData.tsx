@@ -10,13 +10,13 @@ export default function StructuredData() {
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Merkez Ofis",
-      "addressLocality": "İstanbul",
+      "addressLocality": "Trabzon",
       "addressCountry": "TR"
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 41.0082,
-      "longitude": 28.9784
+      "latitude": 41.0027,
+      "longitude": 39.7168
     },
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",

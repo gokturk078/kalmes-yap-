@@ -4,7 +4,7 @@ import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
   title: "İletişim | Teklif Alın ve Bize Ulaşın",
-  description: "KALMES YAPI ile projenizi başlatın. İstanbul ve Kıbrıs ofislerimiz üzerinden bizimle iletişime geçebilirsiniz.",
+  description: "KALMES YAPI ile projenizi başlatın. Trabzon ve Kıbrıs ofislerimiz üzerinden bizimle iletişime geçebilirsiniz.",
 };
 
 export default function IletisimPage() {
@@ -25,7 +25,7 @@ export default function IletisimPage() {
                 </div>
                 <div>
                   <h3 className="text-[10px] md:text-sm font-black uppercase tracking-widest text-slate-400 mb-1 md:mb-2">Genel Merkez</h3>
-                  <p className="text-lg md:text-2xl font-black text-slate-950 uppercase tracking-tight">İstanbul, Türkiye</p>
+                  <p className="text-lg md:text-2xl font-black text-slate-950 uppercase tracking-tight">Trabzon / Türkiye</p>
                 </div>
               </div>
 

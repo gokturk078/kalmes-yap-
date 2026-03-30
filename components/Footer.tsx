@@ -65,7 +65,7 @@ export default function Footer() {
                     <MapPin className="text-primary shrink-0" size={24} />
                     <div>
                       <h5 className="font-black uppercase tracking-tight text-white mb-2">Merkez Ofis</h5>
-                      <p className="text-slate-400 leading-relaxed font-medium">İstanbul, Türkiye</p>
+                      <p className="text-slate-400 leading-relaxed font-medium">Trabzon / Türkiye</p>
                     </div>
                   </div>
                   <div className="flex gap-6">
