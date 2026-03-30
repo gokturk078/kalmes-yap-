@@ -58,7 +58,7 @@ export default async function Home() {
                 <span className="text-slate-300">DENEYİM</span>
               </h2>
               <p className="text-slate-600 text-base md:text-xl leading-relaxed mb-10 md:mb-12">
-                2021&apos;de Muhittin Kalıntaş ve Mesut Demiralp tarafından kurulan KALMES YAPI, temellerini 2004 Alarko Holding Rusya LNG II projesiyle atan, vizyonu kıtaları aşan bir mühendislik gücüdür.
+                Kalmes yapı inş. 2021&apos;de Muhittin Kalıntaş ve Mesut Demiralp tarafından kurulmuştur.
               </p>
               
               <div className="grid grid-cols-2 gap-6 md:gap-10 border-t border-slate-100 pt-10 md:pt-12">

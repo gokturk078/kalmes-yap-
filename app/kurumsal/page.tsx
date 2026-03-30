@@ -18,7 +18,7 @@ export default function KurumsalPage() {
             </h1>
             <div className="space-y-6 md:space-y-8 text-slate-600 text-lg md:text-xl font-medium leading-relaxed text-center md:text-left">
               <p>
-                KALMES YAPI İNŞAAT, temelleri 2004 yılında Alarko Holding bünyesindeki mega projelerle atılmış, köklü bir mühendislik mirasının güncel temsilcisidir.
+                KALMES YAPI İNŞAAT, temelleri 2004 yılında mega projelerle atılmış, köklü bir mühendislik mirasının güncel temsilcisidir.
               </p>
               <p>
                 Muhittin Kalıntaş ve Mesut Demiralp tarafından 2021 yılında kurulan firmamız, 18 yılı aşkın global tecrübesini günümüzün modern inşaat teknolojileriyle harmanlamaktadır.
