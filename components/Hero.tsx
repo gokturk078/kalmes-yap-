@@ -48,11 +48,11 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-4xl sm:text-7xl md:text-9xl text-white font-black leading-tight sm:leading-[0.85] tracking-tight sm:tracking-[-0.08em] mb-8 sm:mb-16"
+            className="text-4xl sm:text-7xl md:text-9xl text-white font-black leading-tight sm:leading-[1.1] tracking-tight sm:tracking-[-0.05em] mb-8 sm:mb-16"
           >
-            GELECEĞİN <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-400">ANITLARINI</span> <br />
-            İNŞA EDİYORUZ
+            SİZ HAYAL EDİN <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-400">BİZ İNŞA</span> <br />
+            EDELİM
           </motion.h1>
 
           <motion.div
