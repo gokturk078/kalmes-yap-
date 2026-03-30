@@ -37,10 +37,10 @@ export default async function Home() {
       {/* Trust & Heritage Section */}
       <section className="py-20 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 md:gap-24 items-center">
-            <div className="relative h-[400px] md:h-[700px] group order-2 lg:order-1">
-              <div className="absolute -inset-4 md:-inset-6 bg-slate-50 rounded-[2.5rem] md:rounded-[4rem] group-hover:scale-105 transition-transform duration-1000" />
-              <div className="relative h-full overflow-hidden rounded-[2rem] md:rounded-[3.5rem] shadow-2xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-24 items-center">
+            <div className="relative h-[300px] sm:h-[400px] md:h-[700px] group order-2 lg:order-1">
+              <div className="absolute -inset-2 md:-inset-6 bg-slate-50 rounded-3xl md:rounded-[4rem] group-hover:scale-105 transition-transform duration-1000" />
+              <div className="relative h-full overflow-hidden rounded-2xl md:rounded-[3.5rem] shadow-2xl">
                 <Image
                   src="/home/hero-alti-gorsel-clean.jpg"
                   alt="Engineering Excellence"
@@ -50,25 +50,25 @@ export default async function Home() {
               </div>
             </div>
 
-            <div className="order-1 lg:order-2">
-              <span className="text-primary font-black uppercase text-xs tracking-[0.4em] mb-6 block">Köklerimiz</span>
-              <h2 className="text-4xl md:text-7xl font-black text-slate-950 leading-[0.9] tracking-[-0.06em] mb-10 uppercase">
+            <div className="order-1 lg:order-2 text-center lg:text-left">
+              <span className="text-primary font-black uppercase text-[10px] md:text-xs tracking-[0.4em] mb-4 md:mb-6 block">Köklerimiz</span>
+              <h2 className="text-4xl sm:text-5xl md:text-7xl font-black text-slate-950 leading-[0.9] tracking-[-0.06em] mb-8 md:mb-10 uppercase">
                 20 YILLIK <br />
                 KÜRESEL <br />
                 <span className="text-slate-300">DENEYİM</span>
               </h2>
-              <p className="text-slate-600 text-lg md:text-xl leading-relaxed mb-12">
+              <p className="text-slate-600 text-base md:text-xl leading-relaxed mb-10 md:mb-12">
                 2021&apos;de Muhittin Kalıntaş ve Mesut Demiralp tarafından kurulan KALMES YAPI, temellerini 2004 Alarko Holding Rusya LNG II projesiyle atan, vizyonu kıtaları aşan bir mühendislik gücüdür.
               </p>
               
-              <div className="grid grid-cols-2 gap-8 md:gap-10 border-t border-slate-100 pt-12">
+              <div className="grid grid-cols-2 gap-6 md:gap-10 border-t border-slate-100 pt-10 md:pt-12">
                 <div>
-                  <div className="text-4xl md:text-5xl font-black text-slate-950 mb-2">18+</div>
-                  <div className="text-[10px] uppercase font-black tracking-widest text-slate-400">Yıl Tecrübe</div>
+                  <div className="text-3xl md:text-5xl font-black text-slate-950 mb-1 md:mb-2">18+</div>
+                  <div className="text-[9px] md:text-[10px] uppercase font-black tracking-widest text-slate-400">Yıl Tecrübe</div>
                 </div>
                 <div>
-                  <div className="text-4xl md:text-5xl font-black text-slate-950 mb-2">%100</div>
-                  <div className="text-[10px] uppercase font-black tracking-widest text-slate-400">Müşteri Memnuniyeti</div>
+                  <div className="text-3xl md:text-5xl font-black text-slate-950 mb-1 md:mb-2">%100</div>
+                  <div className="text-[9px] md:text-[10px] uppercase font-black tracking-widest text-slate-400">Müşteri Memnuniyeti</div>
                 </div>
               </div>
             </div>
@@ -79,14 +79,14 @@ export default async function Home() {
       {/* Redesigned Services Section */}
       <section className="py-20 md:py-32 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16 md:mb-24">
-            <span className="text-primary font-black uppercase text-xs tracking-[0.4em] mb-6 block">Hizmet Alanları</span>
-            <h2 className="text-4xl md:text-7xl font-black text-slate-950 tracking-[-0.06em] uppercase">
+          <div className="text-center mb-12 md:mb-24">
+            <span className="text-primary font-black uppercase text-[10px] md:text-xs tracking-[0.4em] mb-4 md:mb-6 block">Hizmet Alanları</span>
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-black text-slate-950 tracking-[-0.06em] uppercase">
               MÜKEMMELİYETÇİ <br /> <span className="text-slate-300">ÇÖZÜM ORTAKLIĞI</span>
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
             {services.map((item, idx) => (
               <ServiceCard key={idx} {...item} index={idx} />
             ))}
@@ -97,20 +97,23 @@ export default async function Home() {
       {/* Dynamic Projects Preview */}
       <section className="py-20 md:py-32 bg-white">
         <div className="max-w-[1600px] mx-auto px-6">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-24 gap-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-24 gap-6 md:gap-8 text-center md:text-left">
             <div>
-              <span className="text-primary font-black uppercase text-xs tracking-[0.4em] mb-6 block">Portfolyo</span>
-              <h2 className="text-4xl md:text-7xl font-black text-slate-950 tracking-[-0.06em] uppercase">
-                ÖNE ÇIKAN <br /> <span className="text-slate-300">PROJELERİMİZ</span>
+              <span className="text-primary font-black uppercase text-[10px] md:text-xs tracking-[0.4em] mb-4 md:mb-6 block">Seçili Projeler</span>
+              <h2 className="text-4xl sm:text-5xl md:text-7xl font-black text-slate-950 tracking-[-0.06em] uppercase leading-none">
+                MÜHENDİSLİKTE <br /> <span className="text-slate-300">ANITSAL İMZALAR</span>
               </h2>
             </div>
-            <Link href="/projelerimiz" className="group flex items-center justify-center gap-4 text-xs font-black uppercase tracking-widest text-slate-950 bg-slate-50 px-10 py-5 rounded-2xl hover:bg-slate-900 hover:text-white transition-all w-full md:w-auto">
+            <Link 
+              href="/projelerimiz" 
+              className="group flex items-center justify-center md:justify-start gap-3 text-xs md:text-sm font-black uppercase tracking-widest text-slate-950 hover:text-primary transition-colors pb-2 border-b-2 border-slate-100 hover:border-primary"
+            >
               Tümünü Gör
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-2" />
+              <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
             {featuredProjects.map((project, idx) => (
               <ProjectGallery key={project.slug} project={project} index={idx} />
             ))}

@@ -47,7 +47,7 @@ export default function Services() {
           </motion.h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, idx) => (
             <motion.div
               key={idx}
@@ -56,7 +56,7 @@ export default function Services() {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
               whileHover={{ y: -10 }}
-              className="group p-10 rounded-[2.5rem] bg-slate-800/50 border border-slate-700/50 hover:bg-slate-800 hover:border-primary/50 transition-all duration-500"
+              className="group p-8 md:p-10 rounded-3xl md:rounded-[2.5rem] bg-slate-800/50 border border-slate-700/50 hover:bg-slate-800 hover:border-primary/50 transition-all duration-500"
             >
               <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-8 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-500">
                 <service.icon size={32} />

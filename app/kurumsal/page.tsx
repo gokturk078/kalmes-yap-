@@ -8,15 +8,15 @@ export const metadata: Metadata = {
 
 export default function KurumsalPage() {
   return (
-    <main className="pt-40 pb-32 bg-white">
+    <main className="pt-28 md:pt-40 pb-20 md:pb-32 bg-white">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-24 items-start mb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-24 items-start mb-20 md:mb-32">
           <div>
-            <span className="text-primary font-black uppercase text-xs tracking-[0.4em] mb-6 block">Hakkımızda</span>
-            <h1 className="text-6xl md:text-8xl font-black text-slate-950 tracking-[-0.06em] uppercase mb-10 leading-none">
+            <span className="text-primary font-black uppercase text-[10px] md:text-xs tracking-[0.4em] mb-4 md:mb-6 block text-center md:text-left">Hakkımızda</span>
+            <h1 className="text-4xl sm:text-6xl md:text-8xl font-black text-slate-950 tracking-[-0.06em] uppercase mb-8 md:mb-10 leading-none text-center md:text-left">
               GELECEĞE <br /> <span className="text-slate-200">GÜVEN İNŞA EDİYORUZ</span>
             </h1>
-            <div className="space-y-8 text-slate-600 text-xl font-medium leading-relaxed">
+            <div className="space-y-6 md:space-y-8 text-slate-600 text-lg md:text-xl font-medium leading-relaxed text-center md:text-left">
               <p>
                 KALMES YAPI İNŞAAT, temelleri 2004 yılında Alarko Holding bünyesindeki mega projelerle atılmış, köklü bir mühendislik mirasının güncel temsilcisidir.
               </p>
@@ -26,20 +26,20 @@ export default function KurumsalPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 gap-10">
-            <div className="bg-slate-50 p-16 rounded-[4rem]">
-              <h3 className="text-[10px] uppercase font-black tracking-widest text-slate-400 mb-10">Temel Değerlerimiz</h3>
-              <div className="space-y-10">
+          <div className="grid grid-cols-1 gap-8 md:gap-10">
+            <div className="bg-slate-50 p-8 md:p-16 rounded-3xl md:rounded-[4rem]">
+              <h3 className="text-[10px] uppercase font-black tracking-widest text-slate-400 mb-8 md:mb-10 text-center md:text-left">Temel Değerlerimiz</h3>
+              <div className="space-y-8 md:space-y-10">
                 {[
                   { t: "Kusursuz Mühendislik", d: "Sıfır hata vizyonuyla en karmaşık yapıları güvenle inşa ediyoruz." },
                   { t: "Zamanında Teslim", d: "Mega projelerde planlama ve zaman yönetimi bizim için taahhüttür." },
                   { t: "Küresel Vizyon", d: "Rusya'dan Türkiye'ye uzanan uluslararası standartlarda hizmet." }
                 ].map((item, i) => (
-                  <div key={i} className="flex gap-6">
+                  <div key={i} className="flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-4 md:gap-6">
                     <CheckCircle2 className="text-primary shrink-0" size={24} />
                     <div>
-                      <h4 className="text-xl font-black text-slate-950 uppercase tracking-tight mb-2">{item.t}</h4>
-                      <p className="text-slate-500 font-medium">{item.d}</p>
+                      <h4 className="text-lg md:text-xl font-black text-slate-950 uppercase tracking-tight mb-2">{item.t}</h4>
+                      <p className="text-slate-500 font-medium text-sm md:text-base">{item.d}</p>
                     </div>
                   </div>
                 ))}
@@ -49,7 +49,7 @@ export default function KurumsalPage() {
         </div>
 
         {/* Founder Section */}
-        <div className="bg-slate-950 rounded-[4rem] overflow-hidden p-12 md:p-32 text-center text-white relative">
+        <div className="bg-slate-950 rounded-3xl md:rounded-[4rem] overflow-hidden p-8 md:p-32 text-center text-white relative">
           <div className="absolute inset-0 opacity-10 bg-[url('/home/home-1.jpg')] bg-cover bg-center" />
           <div className="relative z-10">
              <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-12">KURUCU VİZYONUMUZ</h2>

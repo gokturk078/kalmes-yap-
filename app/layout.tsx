@@ -35,7 +35,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="tr">
-      <body className={`${inter.className} selection:bg-primary/30`}>
+      <body className={`${inter.className} selection:bg-primary/30 overflow-x-hidden`}>
         <StructuredData />
         <AppShell>{children}</AppShell>
       </body>

@@ -54,6 +54,21 @@ begin
 end;
 $$;
 
+-- Admin yetkisi kontrolü için yardımcı fonksiyon
+create or replace function public.is_admin_email()
+returns boolean
+language plpgsql
+security definer
+as $$
+begin
+  -- Bu fonksiyon giriş yapmış kullanıcının admin olup olmadığını kontrol eder.
+  -- Varsayılan olarak tüm giriş yapmış kullanıcılara izin verir.
+  -- İstenirse buraya belirli e-posta adresleri eklenebilir:
+  -- return auth.jwt() ->> 'email' in ('admin@example.com', 'iletisim@kalmesyapi.com');
+  return auth.role() = 'authenticated';
+end;
+$$;
+
 drop trigger if exists trg_projects_set_updated_at on public.projects;
 create trigger trg_projects_set_updated_at
 before update on public.projects
@@ -135,19 +150,19 @@ create policy "Authenticated write project-images bucket"
 on storage.objects
 for insert
 to authenticated
-with check (bucket_id = 'project-images' and public.is_admin_email());
+with check (bucket_id = 'project-images');
 
 drop policy if exists "Authenticated update project-images bucket" on storage.objects;
 create policy "Authenticated update project-images bucket"
 on storage.objects
 for update
 to authenticated
-using (bucket_id = 'project-images' and public.is_admin_email())
-with check (bucket_id = 'project-images' and public.is_admin_email());
+using (bucket_id = 'project-images')
+with check (bucket_id = 'project-images');
 
 drop policy if exists "Authenticated delete project-images bucket" on storage.objects;
 create policy "Authenticated delete project-images bucket"
 on storage.objects
 for delete
 to authenticated
-using (bucket_id = 'project-images' and public.is_admin_email());
+using (bucket_id = 'project-images');

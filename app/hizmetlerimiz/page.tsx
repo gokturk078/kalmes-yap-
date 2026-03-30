@@ -31,19 +31,19 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <main className="pt-40 pb-32 bg-white">
+    <main className="pt-28 md:pt-40 pb-20 md:pb-32 bg-white">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="max-w-4xl mb-32">
-          <span className="text-primary font-black uppercase text-xs tracking-[0.4em] mb-6 block">Uzmanlık Alanlarımız</span>
-          <h1 className="text-6xl md:text-8xl font-black text-slate-950 tracking-[-0.06em] uppercase mb-10 leading-none">
+        <div className="max-w-4xl mb-16 md:mb-32 text-center md:text-left">
+          <span className="text-primary font-black uppercase text-[10px] md:text-xs tracking-[0.4em] mb-4 md:mb-6 block">Uzmanlık Alanlarımız</span>
+          <h1 className="text-4xl sm:text-6xl md:text-8xl font-black text-slate-950 tracking-[-0.06em] uppercase mb-8 md:mb-10 leading-none">
             GENİŞ ÇAPLI <br /> <span className="text-slate-200">MÜHENDİSLİK ÇÖZÜMLERİ</span>
           </h1>
-          <p className="text-slate-500 text-xl font-medium leading-relaxed">
+          <p className="text-slate-500 text-lg md:text-xl font-medium leading-relaxed">
             Sektörün farklı dinamiklerine uygun, her biri uzmanlık gerektiren inşaat ve taahhüt alanlarında KALMES YAPI güvencesiyle yanınızdayız.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           {services.map((s, i) => (
              <ServiceCard key={i} {...s} index={i} />
           ))}

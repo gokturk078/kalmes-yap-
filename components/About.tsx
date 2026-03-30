@@ -57,10 +57,10 @@ export default function About() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative h-[600px] group"
+            className="relative h-[400px] md:h-[600px] group"
           >
-            <div className="absolute -inset-4 border-2 border-primary/20 rounded-[3rem] transition-transform duration-500 group-hover:scale-105" />
-            <div className="relative h-full overflow-hidden rounded-[2.5rem] shadow-2xl">
+            <div className="absolute -inset-2 md:-inset-4 border-2 border-primary/20 rounded-[2rem] md:rounded-[3rem] transition-transform duration-500 group-hover:scale-105" />
+            <div className="relative h-full overflow-hidden rounded-[1.5rem] md:rounded-[2.5rem] shadow-2xl">
               <Image
                 src="/home/home-3.jpg"
                 alt="İnşaat Sahası"
